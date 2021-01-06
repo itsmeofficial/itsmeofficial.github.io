@@ -1,0 +1,423 @@
+<DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet">
+        <title>IT'S ME!</title>
+</head>
+
+    <style>
+    
+        *{
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        
+        nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 8vh;
+            font-family: 'Poppins', sans-serif;
+            background-color: #5d4954;
+        }
+        
+        .logo{
+            color: beige;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 20px;
+        }
+        
+        .nav-links{
+            display: flex;
+            justify-content: space-around;
+            width: 40%;
+        }
+        
+        .nav-links li{
+            list-style: none;
+        }
+        
+        .nav-links a{
+            color: beige;
+            text-decoration: none;
+            letter-spacing: 3px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+    
+        h2{
+            text-transform: uppercase;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 30px;
+            font-size: 30px;
+            font-weight:bold;
+            text-align: center;
+            justify-content: center;
+            color: black;
+        }
+        
+        h3{
+            font-family: 'Poppins', sans-serif;
+            font-weight: bolder;
+            text-align: left;
+            text-align: center;
+            color: black;
+        }
+        
+        article {
+            float: center;
+            padding: 100px;
+            width: 100%;
+            height: 1150px;
+            background: #800000;
+        }
+        
+        .column{
+            float:left;
+            width: 33.33%;
+            padding: 5px
+        }
+        
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        p{
+            font-family: "Poppins", sans-serif;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        
+        
+        .container{
+        padding: 80px 120px;
+        background-color:mediumslateblue;
+        }
+        
+        footer {
+        background-color: #5d4954;
+        color: #f5f5f5;
+        padding: 32px;
+        }
+        
+        #slider{
+            margin: 0 auto;
+            width: 800px;
+            max-width: 100%;
+            text-align: center;
+        }
+        
+        #slider input[type=radio] {
+            display: none;
+        }
+        
+        #slider label{
+            cursor: pointer;
+            text-decoration: none;
+        }
+        
+        #slides{
+            padding: 10px;
+            border: 3px solid #ccc;
+            background: #fff;
+            position: relative;
+            z-index: 1;
+        }
+        
+        #overflow{
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        #slide1:checked ~ #slides .inner{
+            margin-left: 0;
+        }
+        
+        #slide2:checked ~ #slides .inner{
+            margin-left: -100%;
+        }
+        
+        #slide3:checked ~ #slides .inner{
+            margin-left: -200%;
+        }
+        
+        #slide4:checked ~ #slides .inner{
+            margin-left: -300%;
+        }
+        
+        #slides .inner{
+            transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+            width: 400%;
+            line-height: 0;
+            height: 300px;
+        }
+        
+        #slides .slide{
+            width: 25%;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            color: #fff;
+        }
+        
+        #slides .slide_1{
+            background: #5d4954;
+        }
+        
+         #slides .slide_2{
+            background: #5d4954;
+        }
+        
+         #slides .slide_3{
+            background: #5d4954;
+        }
+        
+         #slides .slide_4{
+            background: #5d4954;
+        }
+        
+        #controls{
+            margin: -180px 0 0 0;
+            width: 100%;
+            height: 50px;
+            z-index: 3;
+            position: relative;
+        }
+        
+        #controls label{
+            transition: opacity 0.2s ease-out;
+            display: none;
+            width: 50px;
+            height: 50px;
+            opacity: .4;
+        }
+        
+        #controls label:hover{
+            opacity: 1;
+        }
+        
+        #slide1:checked ~ #controls label:nth-child(2),
+        #slide2:checked ~ #controls label:nth-child(3),
+        #slide3:checked ~ #controls label:nth-child(4),
+        #slide4:checked ~ #controls label:nth-child(1) {
+            background: url(https://www.flaticon.com/svg/static/icons/svg/318/318476.svg) no-repeat;
+            float: right;
+            margin: 0 -50px 0 0;
+            display: block;
+        }
+        
+        #slide1:checked ~ #controls label:nth-last-child(2),
+        #slide2:checked ~ #controls label:nth-last-child(3),
+        #slide3:checked ~ #controls label:nth-last-child(4),
+        #slide4:checked ~ #controls label:nth-last-child(1) {
+            background: url(https://www.flaticon.com/svg/static/icons/svg/318/318477.svg) no-repeat;
+            float: left;
+            margin: 0 0 0 -50px;
+            display: block;
+        }
+        
+        #bullets{
+            margin: 150px 0 0;
+            text-align: center;
+        }
+        
+        #bullets label{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 100%;
+            background: #ccc;
+            margin: 0 10px;
+        }
+        
+        #slide1:checked ~ #bullets label:nth-child(1),
+        #slide2:checked ~ #bullets label:nth-child(2),
+        #slide3:checked ~ #bullets label:nth-child(3),
+        #slide4:checked ~ #bullets label:nth-child(4) {
+            background: #444;
+        }
+        
+        @media screen and (max-width: 900px){
+            #slide1:checked ~ #controls label:nth-child(2),
+            #slide2:checked ~ #controls label:nth-child(3),
+            #slide3:checked ~ #controls label:nth-child(4),
+            #slide4:checked ~ #controls label:nth-child(1) 
+            #slide1:checked ~ #controls label:nth-last-child(2),
+            #slide2:checked ~ #controls label:nth-last-child(3),
+            #slide3:checked ~ #controls label:nth-last-child(4),
+            #slide4:checked ~ #controls label:nth-last-child(1) {
+            margin: 0;
+        }
+        }
+        
+        .wrapper{
+            margin: 0 auto;
+            width: 1000px;
+        }
+        
+        .videowrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+            padding-top: 25px;
+            height: 0px; 
+        }
+        
+        .videowrapper iframe{
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            height: 100%;
+            width: 100%;
+            
+        }
+        body {
+            background-image: url(back3.jpg);
+        }
+    
+    
+    </style>    
+    
+<body id="#page2" data-target="nav-links">
+    
+    <nav>
+        <div class="logo">
+            <h4>syazwan</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">me!</a>
+            </li>
+             <li>
+                <a href="background.html">Background</a>
+            </li>
+             <li>
+                <a href="hobby.html">Hobby</a>
+            </li>
+             <li>
+                <a href="music.html">Music</a>
+            </li>
+             <li>
+                <a href="studies.html">Studies</a>
+            </li>
+            
+        </ul>
+    </nav>
+    
+    <h2>my music</h2>
+    
+        <div id="slider">
+            <input type="radio" name="slider" id="slide1" checked>
+            <input type="radio" name="slider" id="slide2">
+            <input type="radio" name="slider" id="slide3">
+            <input type="radio" name="slider" id="slide4">
+            <div id="slides">
+                <div id="overflow">
+                    <div class="inner">
+                        <div class="slide slide_1">
+                            <div class="slide-content">
+                                <img src="album1.jpg" width="300" height="250">
+                                <h2>Lonely Soldier Boys</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="slide slide_2">
+                            <div class="slide-content">
+                                 <img src="album2.jpg" width="300" height="250">
+                                <h2>Suria</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="slide slide_3">
+                            <div class="slide-content">
+                                <img src="album3.jpg" width="300" height="250">
+                                <h2>Sang Enemy</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="slide slide_4">
+                            <div class="slide-content">
+                                <img src="album5.jpg" width="300" height="250">
+                                <h2>Hujan</h2>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="controls">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+            </div>
+            <div id="bullets">
+                <label for="slide1"></label>
+                <label for="slide2"></label>
+                <label for="slide3"></label>
+                <label for="slide4"></label>
+            </div>
+        </div>    
+        
+    
+    <div class="container">
+        <h3>&#10024;FEAST YOUR EYES WITH MY PASSION &#10024;</h3>
+        
+        
+        <h3> &#9748; HUJAN BAND &#9748; </h3>
+        <p>My passion for music are endless. It save me most of the time. My stress-reliever. Music is where i let stiffness lose. I myself a musician. I play most musical instrument. But mainly I play guitar. Playing it let me feel free for a moment in my life. Singing you ask? Well, not mu cup-o-tea, per say. But i do wrote song of my own. Randomly.</p>
+        <center>
+            <img src="hujan.jpeg" width="500" height="450">
+        </center>
+        
+        <p>Hujan Band, as you can see, above are some album that i have bought. Well supporting my favourite band of all time. Hey! It's still relevent okey! Althught its 2021. Most of their music had impact my life over the years. And just listen to it kinda like a run back through memory-lane. While jamming to it of course! </p>
+        <p>&#129311; ROCK AND ROLL!! &#129311; </p>
+    
+        
+    </div>
+    
+    <article>
+    
+         <h3>&#128081; &#128016; NOH SALLEH &#128016; &#128081;</h3>
+            <center>
+                <img src="noh1.jpeg" width="700" height="400">
+            </center>
+        <p>G.O.A.T. Greatest of all Time. A label that i would definitely give to this man. Noh Bin Salleh. Malaysia music icon Noh Salleh is the charismatic frontman of the award-winning rock band Hujan. We get him to tell us the songs that have made a big impact on his life and his music. </p>
+        
+        <p>Born and raised in Miri, Sarawak, Noh moved to Kuala Lumpur and work as an assistant in recording studio own by Ahmad Idham. In between music sessions, he self-taught musical knowledge and ask the musicians about jazz chords that interested him. He began his career with Hujan in 2005, along with guitarist AG Coco who became a dominant figure in independent music scene. Their self-titled debut album Hujan in 2008, became the fastest-selling debut album in Malaysia history with massive success from the single "Pagi yang Gelap" and "Bila Aku Sudah Tiada".</p>
+        <p> &#128071; Below I'll give you a moment to listen one of his song &#128071; </p>
+        
+        <center>
+            <div class="wrapper">
+            
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/0A76RGMVRpg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                 <p> &#128070; ENJOY &#128070; </p>
+            </div>
+        </center>    
+    </article>
+</body>
+    
+    <footer class="text-center">
+        
+        <a class="up-arrow" href="#page1" data-toggle="tooltip" title="TO TOP">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+        </a><br><br>
+        <p>Join the Train <a href="https://www.instagram.com/pugs99_/" data-toggle="tooltip" title="Visit Instagram">Here</a></p> 
+        
+    </footer>
+    
+</html>    
